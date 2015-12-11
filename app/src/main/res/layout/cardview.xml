@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/transparent"
+    android:layout_centerInParent="true">
+
+    <com.peter.volley.toolbox.NetworkImageView
+        android:id="@+id/back"
+        android:layout_width="340dp"
+        android:layout_height="515dp"
+        android:layout_centerInParent="true"
+        android:orientation="vertical" />
+
+    <com.peter.volley.toolbox.NetworkImageView
+        android:id="@+id/front"
+        android:layout_width="340dp"
+        android:layout_height="515dp"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>

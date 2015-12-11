@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">水浒卡</string>
+    <string name="action_dianjiang">点将</string>
+    <string name="action_help">帮助</string>
+    <string name="action_about">关于</string>
+    <string name="action_splash">splash</string>
+    <string name="action_about_msg">水浒卡108将搜集(全)\nQQ:792387725\n开源项目:https://github.com/javalive09\n</string>
+    <string name="action_help_msg">1.点击卡片可正反翻转\n2.左右滑动可切换卡片\n3.点将菜单可切换将领</string>
+
+    <string-array name="select_jiang">
+        <item>	001天魁星呼保义宋江	</item>
+        <item>	002天罡星玉麒麟卢俊义 	</item>
+        <item>	003天机星智多星吴用 	</item>
+        <item>	004天闲星入云龙公孙胜 	</item>
+        <item>	005天勇星大刀关胜 	</item>
+        <item>	006天雄星豹子头林冲 	</item>
+        <item>	007天猛星霹雳火秦明 	</item>
+        <item>	008天威星双鞭呼延灼 	</item>
+        <item>	009天英星小李广花荣 	</item>
+        <item>	010天贵星小旋风柴进	</item>
+        <item>	011天富星扑天雕李应 	</item>
+        <item>	012天满星美髯公朱仝 	</item>
+        <item>	013天孤星花和尚鲁智深 	</item>
+        <item>	014天伤星行者武松 	</item>
+        <item>	015天立星双枪将董平	</item>
+        <item>	016天捷星没羽箭张清 	</item>
+        <item>	017天暗星青面兽杨志 	</item>
+        <item>	018天佑星金枪手徐宁 	</item>
+        <item>	019天空星急先锋索超 	</item>
+        <item>	020天速星神行太保戴宗 	</item>
+        <item>	021天异星赤发鬼刘唐 	</item>
+        <item>	022天杀星黑旋风李逵 	</item>
+        <item>	023天微星九纹龙史进 	</item>
+        <item>	024天究星没遮拦穆弘 	</item>
+        <item>	025天退星插翅虎雷横 	</item>
+        <item>	026天寿星混江龙李俊 	</item>
+        <item>	027天剑星立地太岁阮小二 	</item>
+        <item>	028天竟星船火儿张横 	</item>
+        <item>	029天罪星短命二郎阮小五 	</item>
+        <item>	030天损星浪里白条张顺 	</item>
+        <item>	031天败星活阎罗阮小七 	</item>
+        <item>	032天牢星病关索杨雄 	</item>
+        <item>	033天慧星拚命三郎石秀 	</item>
+        <item>	034天暴星两头蛇解珍 	</item>
+        <item>	035天哭星双尾蝎解宝 	</item>
+        <item>	036天巧星浪子燕青	</item>
+        <item>	037地魁星神机军师朱武 	</item>
+        <item>	038地煞星镇三山黄信 	</item>
+        <item>	039地勇星病尉迟孙立 	</item>
+        <item>	040地杰星丑郡马宣赞 	</item>
+        <item>	041地雄星井木犴郝思文 	</item>
+        <item>	042地威星百胜将韩滔 	</item>
+        <item>	043地英星天目将彭玘 	</item>
+        <item>	044地奇星圣水将单廷珪 	</item>
+        <item>	045地猛星神火将魏定国 	</item>
+        <item>	046地文星圣手书生萧让 	</item>
+        <item>	047地正星铁面孔目裴宣 	</item>
+        <item>	048地阔星摩云金翅欧鹏 	</item>
+        <item>	049地阖星火眼狻猊邓飞 	</item>
+        <item>	050地强星锦毛虎燕顺 	</item>
+        <item>	051地暗星锦豹子杨林 	</item>
+        <item>	052地轴星轰天雷凌振 	</item>
+        <item>	053地会星神算子蒋敬 	</item>
+        <item>	054地佐星小温侯吕方 	</item>
+        <item>	055地佑星赛仁贵郭盛 	</item>
+        <item>	056地灵星神医安道全 	</item>
+        <item>	057地兽星紫髯伯皇甫端 	</item>
+        <item>	058地微星矮脚虎王英 	</item>
+        <item>	059地慧星一丈青扈三娘 	</item>
+        <item>	060地暴星丧门神鲍旭 	</item>
+        <item>	061地然星混世魔王樊瑞 	</item>
+        <item>	062地猖星毛头星孔明 	</item>
+        <item>	063地狂星独火星孔亮 	</item>
+        <item>	064地飞星八臂哪吒项充 	</item>
+        <item>	065地走星飞天大圣李衮 	</item>
+        <item>	066地巧星玉臂匠金大坚 	</item>
+        <item>	067地明星铁笛仙马麟 	</item>
+        <item>	068地进星出洞蛟童威 	</item>
+        <item>	069地退星翻江蜃童猛 	</item>
+        <item>	070地满星玉幡竿孟康 	</item>
+        <item>	071地遂星通臂猿侯健	</item>
+        <item>	072地周星跳涧虎陈达 	</item>
+        <item>	073地隐星白花蛇杨春 	</item>
+        <item>	074地异星白面郎君郑天寿	</item>
+        <item>	075地理星九尾龟陶宗旺 	</item>
+        <item>	076地俊星铁扇子宋清 	</item>
+        <item>	077地乐星铁叫子乐和 	</item>
+        <item>	078地捷星花项虎龚旺 	</item>
+        <item>	079地速星中箭虎丁得孙	</item>
+        <item>	080地镇星小遮拦穆春 	</item>
+        <item>	081地嵇星操刀鬼曹正 	</item>
+        <item>	082地魔星云里金刚宋万 	</item>
+        <item>	083地妖星摸着天杜迁 	</item>
+        <item>	084地幽星病大虫薛永 	</item>
+        <item>	085地伏星金眼彪施恩 	</item>
+        <item>	086地僻星打虎将李忠 	</item>
+        <item>	087地空星小霸王周通 	</item>
+        <item>	088地孤星金钱豹子汤隆 	</item>
+        <item>	089地全星鬼脸儿杜兴 	</item>
+        <item>	090地短星出林龙邹渊 	</item>
+        <item>	091地角星独角龙邹润 	</item>
+        <item>	092地囚星旱地忽律朱贵 	</item>
+        <item>	093地藏星笑面虎朱富 	</item>
+        <item>	094地平星铁臂膊蔡福 	</item>
+        <item>	095地损星一枝花蔡庆 	</item>
+        <item>	096地奴星催命判官李立 	</item>
+        <item>	097地察星青眼虎李云 	</item>
+        <item>	098地恶星没面目焦挺 	</item>
+        <item>	099地丑星石将军石勇 	</item>
+        <item>	100地数星小尉迟孙新 	</item>
+        <item>	101地阴星母大虫顾大嫂 	</item>
+        <item>	102地刑星菜园子张青 	</item>
+        <item>	103地壮星母夜叉孙二娘 	</item>
+        <item>	104地劣星活闪婆王定六 	</item>
+        <item>	105地健星险道神郁保四 	</item>
+        <item>	106地耗星白日鼠白胜 	</item>
+        <item>	107地贼星鼓上蚤时迁 	</item>
+        <item>	108地狗星金毛犬段景住	</item>
+    </string-array>
+
+</resources>
