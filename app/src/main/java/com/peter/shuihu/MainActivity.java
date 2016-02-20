@@ -143,6 +143,7 @@ public class MainActivity extends Activity {
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
     }
+
     private void showToast(String str) {
         Toast toast = Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG);
         toast.setGravity(Gravity.CENTER, 0, 0);
@@ -211,10 +212,6 @@ public class MainActivity extends Activity {
 
 		private LruCache<String, Bitmap> lruCache;
 
-		public LruImageCache() {
-			this(8);
-		}
-
 		public LruImageCache(int m) {
 			Log.i("peter", "runtime memery = " + Runtime.getRuntime().maxMemory());
 			int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);//kilobyte
@@ -227,10 +224,6 @@ public class MainActivity extends Activity {
 					return bitmap.getByteCount() / 1024;
 				}
 			};
-		}
-		
-		public void clear() {
-			lruCache.clear();
 		}
 
 		@Override

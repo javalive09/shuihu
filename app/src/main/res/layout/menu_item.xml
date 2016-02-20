@@ -1,6 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="40dp"
+    android:layout_height="@dimen/menu_item_h"
     android:orientation="vertical"
     android:background="@drawable/menu_item_bg" >
 
@@ -11,10 +11,9 @@
 
     <TextView
         android:id="@+id/text"
-        android:layout_width="fill_parent"
-        android:layout_height="39dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="center_vertical"
-        android:textColor="@android:color/white"
         android:paddingLeft="@dimen/list_item_drawable_padding"
         android:textSize="@dimen/list_item_text_size" />
 

@@ -6,5 +6,7 @@
     <dimen name="list_item_drawable_padding">11dp</dimen>
     <dimen name="list_item_min_h">50dp</dimen>
     <dimen name="list_item_text_size">18sp</dimen>
+    <dimen name="title_h">60dp</dimen>
+    <dimen name="menu_item_h">45dp</dimen>
 
 </resources>
