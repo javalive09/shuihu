@@ -17,6 +17,13 @@
         android:largeHeap="true"
         android:name="com.peter.shuihu.ShuiHu"
         android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="57247f7ae0f55a46fa000744" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}" />
+
         <activity
             android:name=".SplashActivity"
             android:label="@string/app_name" >
