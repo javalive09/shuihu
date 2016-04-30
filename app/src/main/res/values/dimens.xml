@@ -9,4 +9,8 @@
     <dimen name="title_h">60dp</dimen>
     <dimen name="menu_item_h">45dp</dimen>
 
+    <dimen name="card_w">300dp</dimen>
+    <dimen name="card_h">454dp</dimen>
+
+
 </resources>

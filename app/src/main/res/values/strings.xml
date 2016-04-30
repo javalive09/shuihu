@@ -6,8 +6,13 @@
     <string name="action_help">帮助</string>
     <string name="action_about">关于</string>
     <string name="action_splash">splash</string>
-    <string name="action_about_msg">水浒卡108将搜集(全)\nQQ:792387725\n开源项目:https://github.com/javalive09\n</string>
+    <string name="action_about_msg">水浒卡108将搜集(全)\n 开源地址:https://github.com/javalive09\n</string>
     <string name="action_help_msg">1.点击卡片可正反翻转\n2.左右滑动可切换卡片\n3.点将菜单可切换将领</string>
+    <string name="action_feedback">反馈</string>
+    <string name="setting_feedback">反馈建议</string>
+    <string name="setting_feedback_body">您的反馈和建议</string>
+    <string name="setting_feedback_address">mailto:javalive09@163.com</string>
+
 
     <string-array name="select_jiang">
         <item>	001天魁星呼保义宋江	</item>

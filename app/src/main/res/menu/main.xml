@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/action_choice"
+        android:orderInCategory="0"
+        android:title="@string/action_dianjiang"/>
+    <item
+        android:id="@+id/action_help"
+        android:orderInCategory="1"
+        android:title="@string/action_help"/>
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="2"
+        android:title="@string/action_about"/>
+    <item
+        android:id="@+id/action_feedback"
+        android:orderInCategory="3"
+        android:title="@string/action_feedback"/>
+    <item
+        android:id="@+id/action_splash"
+        android:orderInCategory="4"
+        android:title="@string/action_splash"/>
+
+</menu>

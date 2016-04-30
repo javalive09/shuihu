@@ -1,26 +1,20 @@
 package com.peter.shuihu;
 
-import com.peter.shuihu.MyMenu.ItemViewCreater;
-import com.peter.shuihu.MyMenu.ItemViewOnClickListener;
 import com.peter.shuihu.ShuiHu.Item;
 import com.peter.volley.VolleyUtil;
 import com.peter.volley.toolbox.ImageLoader;
 import com.peter.volley.toolbox.ImageLoader.ImageCache;
-
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.SparseArray;
-import android.view.Gravity;
-import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -28,138 +22,81 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
 	ViewPager mPager;
-	private MyMenu mMenu;
-    private int[] menuTitleRes = { 
-    		R.string.action_dianjiang,
-    		R.string.action_help, 
-    		R.string.action_about,
-    		R.string.action_splash
-            };
-	private TextView mTitle;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		initMenu();
 		mPager = (ViewPager)findViewById(R.id.vp);
-		mTitle = (TextView) findViewById(R.id.card_name);
-		final String[] items = getResources().getStringArray(R.array.select_jiang);
-		mTitle.setText(items[0]);
 		ShuiHu sh = (ShuiHu) getApplication();
 		ImageAdapter mAdapter = new ImageAdapter(MainActivity.this, sh.getItems());
-		mPager.addOnPageChangeListener(new OnPageChangeListener() {
-
-			@Override
-			public void onPageSelected(int position) {
-				mTitle.setText(items[position]);
-			}
-
-			@Override
-			public void onPageScrolled(int arg0, float arg1, int arg2) {
-
-			}
-
-			@Override
-			public void onPageScrollStateChanged(int arg0) {
-
-			}
-		});
 		mPager.setAdapter(mAdapter);
 	}
 	
-    public void onClick(View v) {
-        switch (v.getId()) {
-        case R.id.menu:
-            mMenu.show();
-            break;
-        }
-    }
-	
-	private void initMenu() {
-		mMenu = new MyMenu(MainActivity.this);
-        View anchor = findViewById(R.id.menu);
-        mMenu.setAnchor(anchor);
-        for (int i = 0; i < menuTitleRes.length; i++) {
-            mMenu.addMenuItem(i, menuTitleRes[i], menuTitleRes[i]);
-        }
-        mMenu.setMenuItemCreater(new ItemViewCreater() {
-
-            @Override
-            public View createView(int position, ViewGroup parent) {
-                LayoutInflater factory = LayoutInflater.from(MainActivity.this);
-                View menu = factory.inflate(R.layout.menu_item, parent, false);
-                TextView tv = (TextView) menu.findViewById(R.id.text);
-                tv.setText(menuTitleRes[position]);
-                return menu;
-            }
-        });
-        mMenu.setMenuItemOnClickListener(new ItemViewOnClickListener() {
-
-            @Override
-            public void OnItemClick(int order) {
-
-                switch (order) {
-                case R.string.action_dianjiang:
-                	showList();
-                    break;
-                case R.string.action_help:
-                	showToast(R.string.action_help_msg);
-                    break;
-                case R.string.action_about:
-					String channel = getApplicationMetaValue("UMENG_CHANNEL");
-					String about = getString(R.string.action_about_msg) +  "channel:" + channel;
-                	showToast(about);
-                    break;
-                case R.string.action_splash:
-                	Intent intent = new Intent(MainActivity.this, SplashActivity.class);
-                	intent.setAction("show");
-                	startActivity(intent);
-                	break;
-                }
-                mMenu.dismiss();
-            }
-        });
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater menuInflater = getMenuInflater();
+		menuInflater.inflate(R.menu.main, menu);
+		return super.onCreateOptionsMenu(menu);
 	}
 
-	private String getApplicationMetaValue(String name) {
-		String value= "";
-		try {
-			ApplicationInfo appInfo =getPackageManager()
-					.getApplicationInfo(getPackageName(),
-							PackageManager.GET_META_DATA);
-			value = appInfo.metaData.getString(name);
-		} catch (PackageManager.NameNotFoundException e) {
-			e.printStackTrace();
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+			case R.id.action_choice:
+				showList();
+				break;
+			case R.id.action_help:
+				showAlertDialog(getString(R.string.action_help),
+						getString(R.string.action_help_msg));
+				break;
+			case R.id.action_about:
+				showAlertDialog(getString(R.string.action_about),
+						getString(R.string.action_about_msg));
+				break;
+
+			case R.id.action_feedback:
+				sendMailByIntent();
+				break;
+			case R.id.action_splash:
+				Intent intent = new Intent(MainActivity.this, SplashActivity.class);
+				intent.setAction("show");
+				startActivity(intent);
+				break;
 		}
-		return value;
+		return super.onOptionsItemSelected(item);
 	}
-	
-    private void showToast(int StringId) {
-        Toast toast = Toast.makeText(getApplicationContext(), StringId, Toast.LENGTH_LONG);
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.show();
-    }
 
-    private void showToast(String str) {
-        Toast toast = Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG);
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.show();
-    }
+	public void sendMailByIntent() {
+		Intent data=new Intent(Intent.ACTION_SENDTO);
+		data.setData(Uri.parse(getString(R.string.setting_feedback_address)));
+		data.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.setting_feedback));
+		data.putExtra(Intent.EXTRA_TEXT, getString(R.string.setting_feedback_body));
+		startActivity(data);
+	}
+
+	public AlertDialog showAlertDialog(String title, String content) {
+		AlertDialog dialog = new AlertDialog.Builder(MainActivity.this).create();
+		dialog.setCanceledOnTouchOutside(true);
+		dialog.setTitle(title);
+		dialog.setMessage(content);
+		dialog.show();
+		return dialog;
+	}
 
 	private void showList() {
-		new AlertDialog.Builder(MainActivity.this, AlertDialog.THEME_DEVICE_DEFAULT_DARK)
-        .setTitle(R.string.action_dianjiang)
-        .setItems(R.array.select_jiang, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
+		AlertDialog dialog = new AlertDialog.Builder(MainActivity.this)
+				.setTitle(R.string.action_dianjiang)
+				.setItems(R.array.select_jiang, new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
                 /* User clicked so do some stuff */
-            	mPager.setCurrentItem(which);
-            }
-        })
-        .create().show();
+				mPager.setCurrentItem(which);
+			}
+		}).create();
+		dialog.setCanceledOnTouchOutside(true);
+		dialog.show();
+
 	}
 	
 	private class ImageAdapter extends PagerAdapter {
@@ -179,7 +116,7 @@ public class MainActivity extends Activity {
 
 		@Override
 		public boolean isViewFromObject(final View arg0, final Object arg1) {
-			return arg0 == ((RotateController) arg1).getCard();
+			return arg0 == ((RotateController) arg1).getCardRoot();
 		}
 
 		@Override
@@ -191,15 +128,15 @@ public class MainActivity extends Activity {
 			
 			controller.setBackImage(mImageLoader, item.mBack);
 			controller.setFrontImage(mImageLoader, item.mFront);
-			
-			container.addView(controller.getCard());
+
+			container.addView(controller.getCardRoot());
 			return controller;
 		}
 
 		@Override
 		public void destroyItem(final ViewGroup container, final int position,
 				final Object object) {
-			container.removeView(((RotateController) object).getCard());
+			container.removeView(((RotateController) object).getCardRoot());
 		}
 
 		@Override

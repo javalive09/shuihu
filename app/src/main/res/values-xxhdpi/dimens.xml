@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_w">300dp</dimen>
+    <dimen name="card_h">454dp</dimen>
+
+</resources>

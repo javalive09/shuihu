@@ -3,6 +3,8 @@ package com.peter.shuihu;
 import com.peter.volley.toolbox.ImageLoader;
 import com.peter.volley.toolbox.NetworkImageView;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
@@ -18,19 +20,21 @@ public class RotateController implements OnClickListener{
 	NetworkImageView front;
 	NetworkImageView back;
 	View card;
+	View mRoot;
 	
 	public RotateController(ViewGroup root) {
 		Context context = root.getContext();
 		LayoutInflater factory = LayoutInflater.from(context);
-		card = factory.inflate(R.layout.cardview, root, false);		
-		front = (NetworkImageView) card.findViewById(R.id.front);
-		back = (NetworkImageView) card.findViewById(R.id.back);
+		mRoot = factory.inflate(R.layout.cardview, root, false);
+		card = mRoot.findViewById(R.id.card);
+		front = (NetworkImageView) mRoot.findViewById(R.id.front);
+		back = (NetworkImageView) mRoot.findViewById(R.id.back);
 		front.setOnClickListener(this);
 		back.setOnClickListener(this);
 	}
 	
-	public View getCard() {
-		return card;
+	public View getCardRoot() {
+		return mRoot;
 	}
 	
 	public void setBackImage(ImageLoader mImageLoader, String url) {
@@ -47,8 +51,9 @@ public class RotateController implements OnClickListener{
 		
 		switch(v.getId()) {
 		case R.id.front:
+			front.setOnClickListener(null);
 			ObjectAnimator anim = ObjectAnimator.ofFloat(card, "rotationY", 0, 180);
-			anim.setDuration(600);
+			anim.setDuration(800);
 			anim.start();
 			int pivotX = card.getWidth() / 2;
 			int pivotY = card.getHeight() / 2;
@@ -68,11 +73,20 @@ public class RotateController implements OnClickListener{
 					}
 				}
 			});
+			anim.addListener(new AnimatorListenerAdapter() {
+
+				@Override
+				public void onAnimationEnd(Animator animation) {
+					super.onAnimationEnd(animation);
+					front.setOnClickListener(RotateController.this);
+				}
+			});
 			
 			break;
 		case R.id.back:
+			back.setOnClickListener(null);
 			anim = ObjectAnimator.ofFloat(card, "rotationY", 180, 0);
-			anim.setDuration(600);
+			anim.setDuration(800);
 			anim.start();
 			pivotX = card.getWidth() / 2;
 			pivotY = card.getHeight() / 2;
@@ -92,7 +106,14 @@ public class RotateController implements OnClickListener{
 					}
 				}
 			});
-			
+			anim.addListener(new AnimatorListenerAdapter() {
+
+				@Override
+				public void onAnimationEnd(Animator animation) {
+					super.onAnimationEnd(animation);
+					back.setOnClickListener(RotateController.this);
+				}
+			});
 			break;
 		}
 	}

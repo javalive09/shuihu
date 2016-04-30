@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/card"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@android:color/transparent"
-    android:layout_centerInParent="true">
 
-    <com.peter.volley.toolbox.NetworkImageView
-        android:id="@+id/back"
-        android:layout_width="310dp"
-        android:layout_height="470dp"
-        android:layout_centerInParent="true"
-        android:scaleType="centerCrop"
-        android:orientation="vertical" />
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <com.peter.volley.toolbox.NetworkImageView
-        android:id="@+id/front"
-        android:layout_width="310dp"
-        android:layout_height="470dp"
-        android:scaleType="centerCrop"
-        android:layout_centerInParent="true"/>
+    <RelativeLayout
+        android:id="@+id/card"
+        android:layout_width="@dimen/card_w"
+        android:layout_height="@dimen/card_h"
+        android:layout_gravity="center">
 
-</RelativeLayout>
+        <com.peter.volley.toolbox.NetworkImageView
+            android:id="@+id/back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop" />
+
+        <com.peter.volley.toolbox.NetworkImageView
+            android:id="@+id/front"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop" />
+
+    </RelativeLayout>
+</FrameLayout>

@@ -39,10 +39,6 @@ public class ShuiHu extends Application{
 		mHashInit = true;
 	}
 	
-	public boolean isInit() {
-		return mHashInit;
-	}
-	
 	public SparseArray<Item> getItems() {
 		if(!mHashInit) {
 			init();
