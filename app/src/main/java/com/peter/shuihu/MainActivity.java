@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 		
 		public ImageAdapter(Context context, SparseArray<Item> items) {
 			mItems = items;
-			mImageLoader = new ImageLoader(VolleyUtil.getQueue(context), new LruImageCache(2));
+			mImageLoader = new ImageLoader(VolleyUtil.getQueue(context), new LruImageCache(8));
 		}
 		
 		@Override
@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
 		public LruImageCache(int m) {
 			Log.i("peter", "runtime memery = " + Runtime.getRuntime().maxMemory());
 			int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);//kilobyte
-			int maxSize = maxMemory / m;// 默认1/8大小
+			int maxSize = maxMemory / m;
 			Log.i("peter", "runtime maxSize maxMemory = " + maxMemory);
 			Log.i("peter", "runtime maxSize = " + maxSize);
 			lruCache = new LruCache<String, Bitmap>(maxSize) {
