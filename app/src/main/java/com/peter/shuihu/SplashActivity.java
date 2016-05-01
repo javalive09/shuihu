@@ -24,11 +24,11 @@ public class SplashActivity extends Activity {
 				TextView tv = (TextView) v;
 				count++;
 				String str = "";
-				if(count >= 15){
+				if(count >= 45){
 					str = "Peter love Lily!";
-				}else if(count >= 10) {
+				}else if(count >= 30) {
 					str = "Peter want Lily!";
-				}else if(count >= 5) {
+				}else if(count >= 15) {
 					str = "Peter miss Lily!";
 				}
 				tv.setText(str);
