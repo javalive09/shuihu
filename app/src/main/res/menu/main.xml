@@ -20,8 +20,13 @@
         android:orderInCategory="3"
         android:title="@string/action_feedback"/>
     <item
-        android:id="@+id/action_splash"
+        android:id="@+id/action_update"
         android:orderInCategory="4"
+        android:title="@string/action_update"/>
+    <item
+        android:id="@+id/action_splash"
+        android:orderInCategory="5"
         android:title="@string/action_splash"/>
+
 
 </menu>

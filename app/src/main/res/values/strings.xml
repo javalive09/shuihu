@@ -6,12 +6,19 @@
     <string name="action_help">帮助</string>
     <string name="action_about">关于</string>
     <string name="action_splash">splash</string>
+    <string name="action_update">更新</string>
     <string name="action_about_msg">水浒卡108将搜集(全)\n开源地址:https://github.com/javalive09/shuihu</string>
     <string name="action_help_msg">1.点击卡片可正反翻转\n2.左右滑动可切换卡片\n3.点将菜单可切换将领</string>
     <string name="action_feedback">反馈</string>
     <string name="setting_feedback">反馈建议</string>
     <string name="setting_feedback_body">您的反馈和建议</string>
     <string name="setting_feedback_address">mailto:javalive09@163.com</string>
+    <string name="update_dialog_title">正在下载更新包</string>
+    <string name="update_dialog_cancel">取消</string>
+    <string name="update_toast_start">开始检测版本</string>
+    <string name="update_toast_nonew">已经是最新版本</string>
+    <string name="update_dialog_title_one">发现新版本</string>
+    <string name="update_dialog_ok">更新</string>
 
 
     <string-array name="select_jiang">
